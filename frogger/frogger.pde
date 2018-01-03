@@ -29,13 +29,25 @@ void draw() {
 
   car1.display();
   car1.move(1);
-
+  if(intersects(car1) == true){
+    y = 400;
+  }
+  
   car2.display();
   car2.move(0);
+  if(intersects(car2) == true){
+    y = 400;
+  }
   car3.display();
   car3.move(1);
+  if(intersects(car3) == true){
+    y = 400;
+  }
   car4.display();
   car4.move(0);
+  if(intersects(car4) == true){
+    y = 400;
+  }
 }
 void keyPressed()
 {
@@ -64,11 +76,35 @@ void keyPressed()
     }
   }
 }
-class Car {
+ boolean intersects(Car car) {
+if ((y > car.carY && y < car.carY+30 && (x> car.carX && x < car.carX + car.size)))
+          return true;
+    else {
+        return false;
+
+    }
+
+}
+class Car{
   int carX;
   int carY;
   int size;
   int speed;
+   
+   void getX(){
+     
+     
+   }
+    void getY(){
+     
+     
+   }
+    void getSize(){
+     
+     
+   }
+  
+  
 
   Car(int carX, int carY, int size, int speed) {
     this.carX = carX;
@@ -78,10 +114,13 @@ class Car {
   }
 
   Car() {
+    int getX;
+    int getY;
+    int getSize;
     this.carX = 350;
     this.carY = 200;
     this.size = 100;
-    this.speed = 50;
+    this.speed = 100;
   }
   void display() 
   {
@@ -101,4 +140,5 @@ class Car {
       carX = 0;
     }
   }
+ 
 }
